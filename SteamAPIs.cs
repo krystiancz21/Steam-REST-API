@@ -1,10 +1,6 @@
-﻿using Microsoft.VisualBasic.ApplicationServices;
+﻿
 using Newtonsoft.Json;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace SteamFormsAppV1
 {
@@ -76,31 +72,27 @@ namespace SteamFormsAppV1
             /*var tempjson = JsonConvert.SerializeObject(profile);
             File.WriteAllText("dane.json", tempjson);*/
 
-            /*using (var context = new UserProfile())
-            {
-                context.SteamId.Add();
-                context.SaveChanges();
-            }*/
-
-            using (var context = new UserProfileContext())
-            {
-                var userProfile = new UserProfile()
+                using (var context = new UserProfileContext())
                 {
-                    SteamId = "123456789",
-                    UserName = "JohnDoe",
-                    CountryCode = "PL",
-                    GamesCount = 5,
-                    /*Games = new List<Game>()
+                    var userProfile = new UserProfile()
                     {
-                        new Game() {SteamId = "123456789", Name = "Game 1", Playtime = 100 },
-                        new Game() {SteamId = "123456789", Name = "Game 2", Playtime = 200 }
-                    }*/
-                };
+                        SteamId = "123456789",
+                        UserName = "JohnDoe",
+                        CountryCode = "PL",
+                        GamesCount = 5
+                    };
+                    
+                    var games2 = new List<Game>()
+                    {
+                        new Game() {SteamId = "123456789", Name = "Game 1", Playtime = 100, Developer = "Valve", Genres="Action", isFree="Paid" },
+                        new Game() {SteamId = "123456789", Name = "Game 2", Playtime = 200, Developer = "Valve", Genres="Action", isFree="Paid"}
+                    };
 
-                context.UserProfiles.Add(userProfile);
+                    // context.UserProfiles.Add(userProfile);
+                    //context.Games.Add(games);
+                    context.Games.AddRange(games2);
                 context.SaveChanges();
-            }
-
+                }
 
 
             //zapis do bazy 2 tabele tabela user's i tabela na gry
