@@ -27,11 +27,12 @@ namespace SteamFormsAppV1
         }
     }
 
-    //[PrimaryKey(nameof(SteamId))]
     public class UserProfile
     {
 
         [Key]
+        public int UID { get; set; }
+        //[]//unique
         public string SteamId { get; set; }
         public string UserName { get; set; }
         public string CountryCode { get; set; }
