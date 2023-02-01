@@ -13,6 +13,7 @@ namespace SteamFormsAppV1
 {
     public class JsonOperations
     {
+        //pobranie danych z bazy danych i zapis do pliku json
         public static void DownloadJsonFromDb()
         {
             var userGames = new List<Game>();
@@ -36,10 +37,16 @@ namespace SteamFormsAppV1
                     }
                 }
 
-                var tempjson = JsonConvert.SerializeObject(userGames);
-                File.WriteAllText("gamesJson.json", tempjson);
-
-                MessageBox.Show("Zapisano dane do pliku JSON");
+                SaveFileDialog sfd = new SaveFileDialog();
+                sfd.Title = "Zapisz plik";
+                sfd.Filter = "Json files (.json)|*.json";
+                sfd.ShowDialog();
+                if (sfd.FileName != "")
+                {
+                    var tempjson = JsonConvert.SerializeObject(userGames);
+                    File.WriteAllText(sfd.FileName, tempjson);
+                    MessageBox.Show("Zapisano dane do pliku JSON");
+                }
             }
             catch (Exception ex)
             {
@@ -47,25 +54,34 @@ namespace SteamFormsAppV1
             }
         }
 
+        //odczyt danych z pliku json i zapis w bazie
         public static void UploadJsonToDb()
         {
             try
             {
-                List<Game> games;
+                var games = new List<Game>();
 
-                using (StreamReader reader = new StreamReader("NewGamesJson.json"))
+                OpenFileDialog ofd = new OpenFileDialog();
+                ofd.Title = "Wybierz plik";
+                ofd.Filter = "Json files (.json) |*.json|All files (.)|*.*";
+                ofd.FilterIndex = 1;
+                ofd.ShowDialog();
+                if (ofd.FileName != "")
                 {
-                    string json = reader.ReadToEnd();
-                    games = JsonConvert.DeserializeObject<List<Game>>(json);
+                    using (StreamReader reader = new StreamReader(ofd.FileName))
+                    {
+                        string json = reader.ReadToEnd();
+                        games = JsonConvert.DeserializeObject<List<Game>>(json);
+                    }
                 }
 
                 using (var db = new UserProfileContext())
                 {
                     db.Games.AddRange(games);
                     db.SaveChanges();
+                    MessageBox.Show("Dane zostały pomyślnie wysłane do bazy");
                 }
 
-                MessageBox.Show("Dane zostały pomyślnie wysłane do bazy");
             }
             catch (Exception ex)
             {

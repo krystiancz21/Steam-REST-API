@@ -1,4 +1,5 @@
 ﻿using Microsoft.VisualBasic.ApplicationServices;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -12,6 +13,7 @@ namespace SteamFormsAppV1
 {
     public class XmlOperations
     {
+        //pobranie danych z bazy danych i zapis do pliku xml
         public static void DownloadXmlFromDb()
         {
             var profiles = new List<UserProfile>();
@@ -33,13 +35,20 @@ namespace SteamFormsAppV1
                     }
                 }
 
-                XmlSerializer serializer = new XmlSerializer(typeof(List<UserProfile>));
-                using (TextWriter writer = new StreamWriter("userXmlProfiles.xml"))
+                SaveFileDialog sfd = new SaveFileDialog();
+                sfd.Title = "Zapisz plik";
+                sfd.Filter = "XML files (.xml)|*.xml";
+                sfd.ShowDialog();
+                if (sfd.FileName != "")
                 {
-                    serializer.Serialize(writer, profiles);
+                    XmlSerializer serializer = new XmlSerializer(typeof(List<UserProfile>));
+                    using (TextWriter writer = new StreamWriter(sfd.FileName))
+                    {
+                        serializer.Serialize(writer, profiles);
+                        MessageBox.Show("Zapisano dane do pliku XML");
+                    }
                 }
-
-                MessageBox.Show("Zapisano dane do pliku XML");
+  
             }
             catch (Exception ex)
             {
@@ -47,6 +56,7 @@ namespace SteamFormsAppV1
             }
         }
 
+        //odczyt danych z pliku xml i zapis w bazie
         public static void UploadXmlToDb()
         {
             try
@@ -54,18 +64,26 @@ namespace SteamFormsAppV1
                 List<UserProfile> userProfiles = new List<UserProfile>();
                 XmlSerializer serializer = new XmlSerializer(typeof(List<UserProfile>));
 
-                using (Stream reader = new FileStream("NewXmlUserProfiles.xml", FileMode.Open))
+                OpenFileDialog ofd = new OpenFileDialog();
+                ofd.Title = "Wybierz plik";
+                ofd.Filter = "XML files (.xml) |*.xml|All files (.)|*.*";
+                ofd.FilterIndex = 1;
+                ofd.ShowDialog();
+                if (ofd.FileName != "")
                 {
-                    var users = (List<UserProfile>)serializer.Deserialize(reader);
-                    foreach (var user in users)
+                    using (Stream reader = new FileStream(ofd.FileName, FileMode.Open))
                     {
-                        var oneUserProfile = new UserProfile();
-                        oneUserProfile.UID = user.UID;
-                        oneUserProfile.SteamId = user.SteamId;
-                        oneUserProfile.UserName = user.UserName;
-                        oneUserProfile.CountryCode = user.CountryCode;
-                        oneUserProfile.GamesCount = user.GamesCount;
-                        userProfiles.Add(oneUserProfile);
+                        var users = (List<UserProfile>)serializer.Deserialize(reader);
+                        foreach (var user in users)
+                        {
+                            var oneUserProfile = new UserProfile();
+                            oneUserProfile.UID = user.UID;
+                            oneUserProfile.SteamId = user.SteamId;
+                            oneUserProfile.UserName = user.UserName;
+                            oneUserProfile.CountryCode = user.CountryCode;
+                            oneUserProfile.GamesCount = user.GamesCount;
+                            userProfiles.Add(oneUserProfile);
+                        }
                     }
                 }
 
@@ -73,9 +91,8 @@ namespace SteamFormsAppV1
                 {
                     db.UserProfiles.AddRange(userProfiles);
                     db.SaveChanges();
-                }
-
-                MessageBox.Show("Dane zostały pomyślnie wysłane do bazy");
+                    MessageBox.Show("Dane zostały pomyślnie wysłane do bazy");
+                } 
             }
             catch (Exception ex)
             {

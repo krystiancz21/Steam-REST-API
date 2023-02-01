@@ -6,10 +6,10 @@ namespace SteamFormsAppV1
 {
     public class SteamAPIs
     {
+        //pobranie danych z Steam Rest API i zapis w bazie
         public static void DownloadSteamDetails(string steamID, string apiKey)
         {
             string url = $"http://api.steampowered.com/IPlayerService/GetOwnedGames/v0001/?key={apiKey}&include_appinfo=true&steamid={steamID}&format=json";
-            //profile.Games = new List<Game>();
             UserProfile profile = new UserProfile();
             var usergames = new List<Game>();
 
@@ -69,6 +69,7 @@ namespace SteamFormsAppV1
         }
 
         // funkcje pobierające dane z REST API
+        // Autor gry
         public static string GetGameDetails(string appID)
         {
             string gameDetailsUrl = $"http://store.steampowered.com/api/appdetails?appids={appID}";
@@ -89,6 +90,7 @@ namespace SteamFormsAppV1
             }
         }
 
+        //typ gry
         public static string GetGameGenres(string appID)
         {
             string gameDetailsUrl = $"http://store.steampowered.com/api/appdetails?appids={appID}";
@@ -109,6 +111,7 @@ namespace SteamFormsAppV1
             }
         }
 
+        //informacja czy gra jest darmowa/platna
         public static string GetGameIsFree(string appID)
         {
             string gameDetailsUrl = $"http://store.steampowered.com/api/appdetails?appids={appID}";
@@ -141,6 +144,7 @@ namespace SteamFormsAppV1
             }
         }
 
+        //nazwa gracza
         public static string GetPersonalDetails(string steamID, string apiKey)
         {
             string personalDetailsUrl = $"https://api.steampowered.com/ISteamUser/GetPlayerSummaries/v2/?key={apiKey}&steamids={steamID}";
@@ -162,6 +166,7 @@ namespace SteamFormsAppV1
             }
         }
 
+        //kraj pochodzenia gracza
         public static string GetCountryCode(string steamID, string apiKey)
         {
             string personalDetailsUrl = $"https://api.steampowered.com/ISteamUser/GetPlayerSummaries/v2/?key={apiKey}&steamids={steamID}";

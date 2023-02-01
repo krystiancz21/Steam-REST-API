@@ -27,6 +27,7 @@ namespace SteamFormsAppV1
             infoLabel.Text = "Trwa pobieranie danych o u¿ytkowniku, proszê czekaæ...";
             SteamAPIs.DownloadSteamDetails(steamID, apiKey);
             infoLabel.Text = "";
+            ShowAllData();
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -42,15 +43,22 @@ namespace SteamFormsAppV1
         private void button4_Click(object sender, EventArgs e)
         {
             JsonOperations.UploadJsonToDb();
+            ShowAllData();
         }
 
         private void button5_Click(object sender, EventArgs e)
         {
             XmlOperations.UploadXmlToDb();
+            ShowAllData();
         }
 
         private void button6_Click(object sender, EventArgs e)
         {
+            ShowAllData();
+        }
+
+        //funkcja wyswietlajaca liste uzytkownikow i liste gier
+        private void ShowAllData() {
             ShowData shd = new ShowData();
             List<UserProfile> userProfiles_list;
             List<Game> userGames_list;
@@ -58,7 +66,6 @@ namespace SteamFormsAppV1
             userGames_list = shd.ShowGames();
             dataGridView1.DataSource = userProfiles_list;
             dataGridView2.DataSource = userGames_list;
-
         }
     }
 }

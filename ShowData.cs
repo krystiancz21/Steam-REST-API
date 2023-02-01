@@ -12,6 +12,7 @@ namespace SteamFormsAppV1
 {
     public class ShowData
     {
+        //pobranie listy uzytkowników z bazy i przygotowanie do wyswietlenia
         public List<UserProfile> ShowUsers() {
             string connectionString =
                 "datasource=localhost;" + "database=steam;" +
@@ -64,6 +65,7 @@ namespace SteamFormsAppV1
             return userProfiles_list;
         }
 
+        //pobranie listy gier z bazy i przygotowanie do wyswietlenia
         public List<Game> ShowGames() {
             string connectionString =
                 "datasource=localhost;" + "database=steam;" +
