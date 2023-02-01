@@ -35,6 +35,8 @@ namespace SteamFormsAppV1
                 {
                     serializer.Serialize(writer, profiles);
                 }
+
+                MessageBox.Show("Zapisano dane do pliku XML");
             }
             catch (Exception ex)
             {
@@ -42,9 +44,16 @@ namespace SteamFormsAppV1
             }
         }
 
-        public static void UploadXmlFromDb()
+        public static void UploadXmlToDb()
         {
-            string json = File.ReadAllText("person.json");
+            try
+            {
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
 
         }
 

@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 using System.Xml.Linq;
 using System.Xml.Serialization;
 
@@ -37,6 +38,8 @@ namespace SteamFormsAppV1
 
                 var tempjson = JsonConvert.SerializeObject(userGames);
                 File.WriteAllText("gamesJson.json", tempjson);
+
+                MessageBox.Show("Zapisano dane do pliku JSON");
             }
             catch (Exception ex)
             {
@@ -44,10 +47,41 @@ namespace SteamFormsAppV1
             }
         }
 
-        public static void UploadJsonFromDb()
+        public static void UploadJsonToDb()
         {
-            
+            try
+            {
+                List<Game> games;
+
+                using (StreamReader reader = new StreamReader("gamesJson.json"))
+                {
+                    string json = reader.ReadToEnd();
+                    games = JsonConvert.DeserializeObject<List<Game>>(json);
+                }
+
+                using (var db = new UserProfileContext())
+                {
+                    db.Games.AddRange(games);
+                    db.SaveChanges();
+                }
+
+                MessageBox.Show("Dane zostały pomyślnie wysłane do bazy");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
+
+        /*private static List<Game> LoadGamesFromJson()
+        {
+            using (StreamReader reader = new StreamReader("gamesJson.json"))
+            {
+                string json = reader.ReadToEnd();
+                return JsonConvert.DeserializeObject<List<Game>>(json);
+            }
+        }*/
+
 
 
     }

@@ -29,13 +29,21 @@ namespace SteamFormsAppV1
         private void button2_Click(object sender, EventArgs e)
         {
             JsonOperations.DownloadJsonFromDb();
-            MessageBox.Show("Zapisano dane do pliku JSON");
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
             XmlOperations.DownloadXmlFromDb();
-            MessageBox.Show("Zapisano dane do pliku XML");
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            JsonOperations.UploadJsonToDb();
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            XmlOperations.UploadXmlToDb();
         }
     }
 }
