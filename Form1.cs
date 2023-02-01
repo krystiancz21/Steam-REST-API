@@ -1,4 +1,7 @@
 
+using MySql.Data.MySqlClient;
+using System.Data;
+
 namespace SteamFormsAppV1
 {
     public partial class Form1 : Form
@@ -44,6 +47,18 @@ namespace SteamFormsAppV1
         private void button5_Click(object sender, EventArgs e)
         {
             XmlOperations.UploadXmlToDb();
+        }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            ShowData shd = new ShowData();
+            List<UserProfile> userProfiles_list;
+            List<Game> userGames_list;
+            userProfiles_list = shd.ShowUsers();
+            userGames_list = shd.ShowGames();
+            dataGridView1.DataSource = userProfiles_list;
+            dataGridView2.DataSource = userGames_list;
+
         }
     }
 }

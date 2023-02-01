@@ -37,7 +37,6 @@ namespace SteamFormsAppV1
         public string UserName { get; set; }
         public string CountryCode { get; set; }
         public int GamesCount { get; set; }
-        //public List<Game> Games { get; set; }
     }
 
     public class Game

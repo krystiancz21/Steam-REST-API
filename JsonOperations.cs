@@ -73,14 +73,5 @@ namespace SteamFormsAppV1
             }
         }
 
-        /*private static List<Game> LoadGamesFromJson()
-        {
-            using (StreamReader reader = new StreamReader("gamesJson.json"))
-            {
-                string json = reader.ReadToEnd();
-                return JsonConvert.DeserializeObject<List<Game>>(json);
-            }
-        }*/
-
     }
 }
