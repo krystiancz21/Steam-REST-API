@@ -18,7 +18,6 @@ namespace SteamFormsAppV1
 {
     public class UserProfileContext : DbContext
     {
-        
         public DbSet<UserProfile> UserProfiles { get; set; }
         public DbSet<Game> Games { get; set; }
         public UserProfileContext():base() { }

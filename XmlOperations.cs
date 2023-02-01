@@ -34,7 +34,7 @@ namespace SteamFormsAppV1
                 }
 
                 XmlSerializer serializer = new XmlSerializer(typeof(List<UserProfile>));
-                using (TextWriter writer = new StreamWriter("userProfilesXml.xml"))
+                using (TextWriter writer = new StreamWriter("userXmlProfiles.xml"))
                 {
                     serializer.Serialize(writer, profiles);
                 }
@@ -54,7 +54,7 @@ namespace SteamFormsAppV1
                 List<UserProfile> userProfiles = new List<UserProfile>();
                 XmlSerializer serializer = new XmlSerializer(typeof(List<UserProfile>));
 
-                using (Stream reader = new FileStream("userProfilesXml.xml", FileMode.Open))
+                using (Stream reader = new FileStream("NewXmlUserProfiles.xml", FileMode.Open))
                 {
                     var users = (List<UserProfile>)serializer.Deserialize(reader);
                     foreach (var user in users)

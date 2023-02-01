@@ -53,7 +53,7 @@ namespace SteamFormsAppV1
             {
                 List<Game> games;
 
-                using (StreamReader reader = new StreamReader("gamesJson.json"))
+                using (StreamReader reader = new StreamReader("NewGamesJson.json"))
                 {
                     string json = reader.ReadToEnd();
                     games = JsonConvert.DeserializeObject<List<Game>>(json);

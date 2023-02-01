@@ -96,7 +96,8 @@ namespace SteamFormsAppV1
                                Name = reader.GetString(2),
                                Playtime = reader.GetInt32(3),
                                Developer = reader.GetString(4),
-                               isFree = reader.GetString(5),
+                               Genres = reader.GetString(5),
+                               isFree = reader.GetString(6),
                             });
                         }
                     }
