@@ -10,6 +10,9 @@ using System.Text;
 using System.Threading.Tasks;
 
 
+using System.Xml.Serialization;
+using System.IO;
+
 
 namespace SteamFormsAppV1
 {
@@ -18,9 +21,7 @@ namespace SteamFormsAppV1
         
         public DbSet<UserProfile> UserProfiles { get; set; }
         public DbSet<Game> Games { get; set; }
-        public UserProfileContext():base() {
-        
-        }
+        public UserProfileContext():base() { }
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             optionsBuilder.UseMySQL("Server=localhost;Database=steam;User=root;");
@@ -32,7 +33,6 @@ namespace SteamFormsAppV1
 
         [Key]
         public int UID { get; set; }
-        //[]//unique
         public string SteamId { get; set; }
         public string UserName { get; set; }
         public string CountryCode { get; set; }
@@ -51,4 +51,6 @@ namespace SteamFormsAppV1
         public string Genres { get; set; }
         public string isFree { get; set; }
     }
+
+    
 }
