@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Czas generowania: 31 Sty 2023, 22:15
+-- Czas generowania: 01 Lut 2023, 22:09
 -- Wersja serwera: 10.4.27-MariaDB
 -- Wersja PHP: 8.0.25
 
@@ -37,18 +37,6 @@ CREATE TABLE `games` (
   `isFree` varchar(15) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
---
--- Zrzut danych tabeli `games`
---
-
-INSERT INTO `games` (`GID`, `SteamId`, `Name`, `Playtime`, `Developer`, `Genres`, `isFree`) VALUES
-(339, '76561199111753066', 'The Witcher 3: Wild Hunt', 58, 'CD PROJEKT RED', 'RPG', 'Paid'),
-(340, '76561199111753066', 'Counter-Strike: Global Offensive', 5582, 'Valve', 'Экшены', 'Free'),
-(341, '76561199111753066', 'DiRT Rally 2.0', 1389, 'Codemasters', 'Racing', 'Paid'),
-(342, '76561199111753066', 'Kao the Kangaroo: Round 2', 30, 'Tate Multimedia', 'Action', 'Paid'),
-(343, '76561199111753066', 'Need for Speed™ Heat ', 3116, 'Ghost Games', 'Action', 'Paid'),
-(344, '76561199111753066', 'Battlefield 1 ™', 0, 'DICE', 'Action', 'Paid');
-
 -- --------------------------------------------------------
 
 --
@@ -62,13 +50,6 @@ CREATE TABLE `userprofiles` (
   `CountryCode` varchar(3) NOT NULL,
   `GamesCount` int(4) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Zrzut danych tabeli `userprofiles`
---
-
-INSERT INTO `userprofiles` (`UID`, `SteamId`, `UserName`, `CountryCode`, `GamesCount`) VALUES
-(23, '76561199111753066', 'Borubar', 'PL', 6);
 
 --
 -- Indeksy dla zrzutów tabel
@@ -95,13 +76,13 @@ ALTER TABLE `userprofiles`
 -- AUTO_INCREMENT dla tabeli `games`
 --
 ALTER TABLE `games`
-  MODIFY `GID` int(4) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=345;
+  MODIFY `GID` int(4) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT dla tabeli `userprofiles`
 --
 ALTER TABLE `userprofiles`
-  MODIFY `UID` int(4) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
+  MODIFY `UID` int(4) NOT NULL AUTO_INCREMENT;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
