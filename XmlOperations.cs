@@ -73,7 +73,7 @@ namespace SteamFormsAppV1
                 {
                     using (Stream reader = new FileStream(ofd.FileName, FileMode.Open))
                     {
-                        var users = (List<UserProfile>)serializer.Deserialize(reader);
+                        var users = serializer.Deserialize(reader) as List<UserProfile>;
                         foreach (var user in users)
                         {
                             var oneUserProfile = new UserProfile();

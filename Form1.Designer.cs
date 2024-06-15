@@ -28,190 +28,212 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.infoLabel = new System.Windows.Forms.Label();
-            this.button3 = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
-            this.SteamIdTextBox = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.ApiKeyTextBox = new System.Windows.Forms.TextBox();
-            this.button4 = new System.Windows.Forms.Button();
-            this.button5 = new System.Windows.Forms.Button();
-            this.label3 = new System.Windows.Forms.Label();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.button6 = new System.Windows.Forms.Button();
-            this.label4 = new System.Windows.Forms.Label();
-            this.dataGridView2 = new System.Windows.Forms.DataGridView();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
-            this.SuspendLayout();
+            button1 = new Button();
+            button2 = new Button();
+            infoLabel = new Label();
+            button3 = new Button();
+            label1 = new Label();
+            SteamIdTextBox = new TextBox();
+            label2 = new Label();
+            ApiKeyTextBox = new TextBox();
+            button4 = new Button();
+            button5 = new Button();
+            label3 = new Label();
+            dataGridView1 = new DataGridView();
+            button6 = new Button();
+            label4 = new Label();
+            dataGridView2 = new DataGridView();
+            label6 = new Label();
+            label5 = new Label();
+            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)dataGridView2).BeginInit();
+            SuspendLayout();
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(837, 32);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(165, 45);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "Wyślij do bazy";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            button1.Location = new Point(761, 28);
+            button1.Name = "button1";
+            button1.Size = new Size(160, 34);
+            button1.TabIndex = 0;
+            button1.Text = "Pobierz dane z API";
+            button1.UseVisualStyleBackColor = true;
+            button1.Click += button1_Click;
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(837, 83);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(165, 45);
-            this.button2.TabIndex = 2;
-            this.button2.Text = "Pobierz JSON";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            button2.Location = new Point(806, 154);
+            button2.Name = "button2";
+            button2.Size = new Size(95, 34);
+            button2.TabIndex = 2;
+            button2.Text = "JSON";
+            button2.UseVisualStyleBackColor = true;
+            button2.Click += button2_Click;
             // 
             // infoLabel
             // 
-            this.infoLabel.AutoSize = true;
-            this.infoLabel.Location = new System.Drawing.Point(44, 73);
-            this.infoLabel.Name = "infoLabel";
-            this.infoLabel.Size = new System.Drawing.Size(0, 20);
-            this.infoLabel.TabIndex = 3;
+            infoLabel.AutoSize = true;
+            infoLabel.Location = new Point(44, 73);
+            infoLabel.Name = "infoLabel";
+            infoLabel.Size = new Size(0, 20);
+            infoLabel.TabIndex = 3;
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(837, 134);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(165, 45);
-            this.button3.TabIndex = 4;
-            this.button3.Text = "Pobierz XML";
-            this.button3.UseVisualStyleBackColor = true;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
+            button3.Location = new Point(907, 154);
+            button3.Name = "button3";
+            button3.Size = new Size(95, 34);
+            button3.TabIndex = 4;
+            button3.Text = "XML";
+            button3.UseVisualStyleBackColor = true;
+            button3.Click += button3_Click;
             // 
             // label1
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(44, 32);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(69, 20);
-            this.label1.TabIndex = 5;
-            this.label1.Text = "SteamID:";
+            label1.AutoSize = true;
+            label1.Location = new Point(44, 32);
+            label1.Name = "label1";
+            label1.Size = new Size(69, 20);
+            label1.TabIndex = 5;
+            label1.Text = "SteamID:";
             // 
             // SteamIdTextBox
             // 
-            this.SteamIdTextBox.Location = new System.Drawing.Point(128, 32);
-            this.SteamIdTextBox.Name = "SteamIdTextBox";
-            this.SteamIdTextBox.Size = new System.Drawing.Size(200, 27);
-            this.SteamIdTextBox.TabIndex = 6;
+            SteamIdTextBox.Location = new Point(128, 32);
+            SteamIdTextBox.Name = "SteamIdTextBox";
+            SteamIdTextBox.Size = new Size(200, 27);
+            SteamIdTextBox.TabIndex = 6;
             // 
             // label2
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(400, 35);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(60, 20);
-            this.label2.TabIndex = 7;
-            this.label2.Text = "API key:";
+            label2.AutoSize = true;
+            label2.Location = new Point(363, 35);
+            label2.Name = "label2";
+            label2.Size = new Size(60, 20);
+            label2.TabIndex = 7;
+            label2.Text = "API key:";
             // 
             // ApiKeyTextBox
             // 
-            this.ApiKeyTextBox.Location = new System.Drawing.Point(466, 32);
-            this.ApiKeyTextBox.Name = "ApiKeyTextBox";
-            this.ApiKeyTextBox.Size = new System.Drawing.Size(320, 27);
-            this.ApiKeyTextBox.TabIndex = 8;
+            ApiKeyTextBox.Location = new Point(429, 32);
+            ApiKeyTextBox.Name = "ApiKeyTextBox";
+            ApiKeyTextBox.Size = new Size(320, 27);
+            ApiKeyTextBox.TabIndex = 8;
             // 
             // button4
             // 
-            this.button4.Location = new System.Drawing.Point(837, 185);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(165, 45);
-            this.button4.TabIndex = 9;
-            this.button4.Text = "Wyślij JSON";
-            this.button4.UseVisualStyleBackColor = true;
-            this.button4.Click += new System.EventHandler(this.button4_Click);
+            button4.Location = new Point(806, 225);
+            button4.Name = "button4";
+            button4.Size = new Size(95, 34);
+            button4.TabIndex = 9;
+            button4.Text = "JSON";
+            button4.UseVisualStyleBackColor = true;
+            button4.Click += button4_Click;
             // 
             // button5
             // 
-            this.button5.Location = new System.Drawing.Point(837, 236);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(165, 45);
-            this.button5.TabIndex = 10;
-            this.button5.Text = "Wyślij XML";
-            this.button5.UseVisualStyleBackColor = true;
-            this.button5.Click += new System.EventHandler(this.button5_Click);
+            button5.Location = new Point(907, 225);
+            button5.Name = "button5";
+            button5.Size = new Size(95, 34);
+            button5.TabIndex = 10;
+            button5.Text = "XML";
+            button5.UseVisualStyleBackColor = true;
+            button5.Click += button5_Click;
             // 
             // label3
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(44, 108);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(94, 20);
-            this.label3.TabIndex = 11;
-            this.label3.Text = "Użytkownicy:";
+            label3.AutoSize = true;
+            label3.Location = new Point(50, 108);
+            label3.Name = "label3";
+            label3.Size = new Size(91, 20);
+            label3.TabIndex = 11;
+            label3.Text = "Użytkownicy";
             // 
             // dataGridView1
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(49, 131);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowHeadersWidth = 51;
-            this.dataGridView1.RowTemplate.Height = 29;
-            this.dataGridView1.Size = new System.Drawing.Size(702, 190);
-            this.dataGridView1.TabIndex = 12;
+            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridView1.Location = new Point(49, 131);
+            dataGridView1.Name = "dataGridView1";
+            dataGridView1.RowHeadersWidth = 51;
+            dataGridView1.RowTemplate.Height = 29;
+            dataGridView1.Size = new Size(702, 190);
+            dataGridView1.TabIndex = 12;
             // 
             // button6
             // 
-            this.button6.Location = new System.Drawing.Point(837, 287);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(165, 45);
-            this.button6.TabIndex = 13;
-            this.button6.Text = "Wyświetl dane";
-            this.button6.UseVisualStyleBackColor = true;
-            this.button6.Click += new System.EventHandler(this.button6_Click);
+            button6.Location = new Point(806, 276);
+            button6.Name = "button6";
+            button6.Size = new Size(196, 45);
+            button6.TabIndex = 13;
+            button6.Text = "Wyświetl dane";
+            button6.UseVisualStyleBackColor = true;
+            button6.Click += button6_Click;
             // 
             // label4
             // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(49, 338);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(34, 20);
-            this.label4.TabIndex = 14;
-            this.label4.Text = "Gry:";
+            label4.AutoSize = true;
+            label4.Location = new Point(50, 338);
+            label4.Name = "label4";
+            label4.Size = new Size(31, 20);
+            label4.TabIndex = 14;
+            label4.Text = "Gry";
             // 
             // dataGridView2
             // 
-            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView2.Location = new System.Drawing.Point(49, 361);
-            this.dataGridView2.Name = "dataGridView2";
-            this.dataGridView2.RowHeadersWidth = 51;
-            this.dataGridView2.RowTemplate.Height = 29;
-            this.dataGridView2.Size = new System.Drawing.Size(953, 219);
-            this.dataGridView2.TabIndex = 15;
+            dataGridView2.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridView2.Location = new Point(49, 361);
+            dataGridView2.Name = "dataGridView2";
+            dataGridView2.RowHeadersWidth = 51;
+            dataGridView2.RowTemplate.Height = 29;
+            dataGridView2.Size = new Size(953, 219);
+            dataGridView2.TabIndex = 15;
+            // 
+            // label6
+            // 
+            label6.AutoSize = true;
+            label6.Location = new Point(816, 201);
+            label6.Name = "label6";
+            label6.Size = new Size(175, 20);
+            label6.TabIndex = 17;
+            label6.Text = "Wczytaj dane w formacie";
+            // 
+            // label5
+            // 
+            label5.AutoSize = true;
+            label5.Location = new Point(817, 129);
+            label5.Name = "label5";
+            label5.Size = new Size(173, 20);
+            label5.TabIndex = 19;
+            label5.Text = "Pobierz dane w formacie";
             // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1050, 615);
-            this.Controls.Add(this.dataGridView2);
-            this.Controls.Add(this.label4);
-            this.Controls.Add(this.button6);
-            this.Controls.Add(this.dataGridView1);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.button5);
-            this.Controls.Add(this.button4);
-            this.Controls.Add(this.ApiKeyTextBox);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.SteamIdTextBox);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.button3);
-            this.Controls.Add(this.infoLabel);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
-            this.Name = "Form1";
-            this.Text = "Steam APP";
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
-            this.ResumeLayout(false);
-            this.PerformLayout();
-
+            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleMode = AutoScaleMode.Font;
+            ClientSize = new Size(1050, 615);
+            Controls.Add(label5);
+            Controls.Add(label6);
+            Controls.Add(dataGridView2);
+            Controls.Add(label4);
+            Controls.Add(button6);
+            Controls.Add(dataGridView1);
+            Controls.Add(label3);
+            Controls.Add(button5);
+            Controls.Add(button4);
+            Controls.Add(ApiKeyTextBox);
+            Controls.Add(label2);
+            Controls.Add(SteamIdTextBox);
+            Controls.Add(label1);
+            Controls.Add(button3);
+            Controls.Add(infoLabel);
+            Controls.Add(button2);
+            Controls.Add(button1);
+            Name = "Form1";
+            Text = "Steam APP";
+            Load += Form1_Load;
+            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)dataGridView2).EndInit();
+            ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
@@ -231,5 +253,7 @@
         private Button button6;
         private Label label4;
         private DataGridView dataGridView2;
+        private Label label6;
+        private Label label5;
     }
 }
