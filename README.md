@@ -36,3 +36,14 @@ C# | MySQL
 ### Importing data from XML file format
 ![Loading_from_xml](images/loading_from_xml.png)
 ![Load_xml_success](images/load_xml_success.png)
+
+# Database preview
+The database consists of two tables
+* userprofiles 
+* games
+* 
+##### Structure of the `userprofiles` table
+![Games](images/db_users.png)
+
+##### Structure of the `games` table
+![Games](images/db_games.png)

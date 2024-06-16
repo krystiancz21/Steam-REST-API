@@ -13,10 +13,6 @@ namespace SteamFormsAppV1
 
         private async void button1_Click(object sender, EventArgs e)
         {
-            //Kacper
-            /*string steamID = "76561198057073414";
-            string apiKey = "10CE6174A0F180746BA156D8A9B84AF4";*/
-
             string steamID = SteamIdTextBox.Text;
             string apiKey = ApiKeyTextBox.Text;
 
